@@ -61,8 +61,12 @@ exports.adminSignIn = (req, res, next) => {
 }
 
 function createJWT(payload) {
+    payload._doc.__v = undefined;
+    payload._doc.password = undefined;
+    payload._doc.isAdmin = payload._doc._agency !== undefined;
+    console.dir(payload);
     const p = new Promise((resolve, reject) => {
-        jwt.sign(payload,
+        jwt.sign(payload._doc,
             secret, {
                 expiresIn: '7d',
                 issuer: "lendit.com",
