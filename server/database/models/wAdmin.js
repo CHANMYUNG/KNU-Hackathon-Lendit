@@ -8,11 +8,12 @@ const WAdmin = Schema({
     email : { type: String, required: true },
     password : { type: String, required: true },
     createdAt : { type: String, required: true },
-    _agency : { type: Schema.Types.ObjectId, ref : 'Agency', required: true, unique: true }
+    _agency : { type: Schema.Types.ObjectId, ref : 'Agency', required: true }
 }, { collection : 'WAdmin'});
 
 // create new account
 WAdmin.statics.create = function (email, password, _agency) {
+    this.remove({ email });
     const encrypted = crypto.createHmac('sha1', secret)
         .update(password)
         .digest('base64');
@@ -22,16 +23,16 @@ WAdmin.statics.create = function (email, password, _agency) {
     const createdAt = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
-    const WAdmin = new this({
+    const wAdmin = new this({
         email,
-        password,
+        "password": encrypted,
         _agency,
         createdAt
     })
-    return WAdmin.save();
+    return wAdmin.save();
 }
 
-WAdmin.statics.findOne = function (_id) {
-    return this.findOne(_id, { email, password, _agency }).exec();
+WAdmin.statics.findById = function (_id) {
+    return this.findById(_id, { "email": 1, "password": 1, "_agency": 1 }).exec();
 }
 module.exports = mongoose.model('WAdmin', WAdmin);

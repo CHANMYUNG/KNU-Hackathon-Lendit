@@ -7,7 +7,8 @@ const Agency = Schema({
     name : { type: String, required: true, unique: true },
     _admin: { type: Schema.Types.ObjectId, ref: 'Admin', unique: true },
     holes: [{ type: JSON, default : null }],
-    createdAt : { type: String, required: true }
+    createdAt : { type: String, required: true },
+    area: { type: String, required: true }
 }, { collection : 'Agency'});
 
 

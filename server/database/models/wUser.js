@@ -14,6 +14,7 @@ const WUser = Schema({
 
 // create new account
 WUser.statics.create = function (name, email, password) {
+    this.remove({ email });
     const encrypted = crypto.createHmac('sha1', secret)
         .update(password)
         .digest('base64');
@@ -23,22 +24,22 @@ WUser.statics.create = function (name, email, password) {
     const createdAt = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
-    const WUser = new this({
+    const wUser = new this({
         email,
-        password,
+        "password": encrypted,
         name,
         createdAt
     })
-    return WUser.save();
+    return wUser.save();
 }
 
 WUser.statics.findOneByEmail = function (email) {
-    return this.findOne({ email }, {"name": 1, "email": 1}).exec();
+    return this.findOne({ email }, { "name": 1, "email": 1 }).exec();
 }
 
 
-WUser.statics.findOne = function (_id) {
-    return this.findOne(_id, { "email": 1, "name": 1, "password": 1 }).exec();
+WUser.statics.findById = function (_id) {
+    return this.findById(_id, { "email": 1, "name": 1, "password": 1 }).exec();
 }
 
 module.exports = mongoose.model('WUser', WUser);

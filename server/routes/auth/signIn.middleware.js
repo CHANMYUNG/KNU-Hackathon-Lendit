@@ -2,9 +2,9 @@ let User = require('../../database/models/user');
 let Admin = require('../../database/models/admin');
 
 const jwt = require('jsonwebtoken');
-
+const secret = process.env.LENDIT_JWT_SECRET;
 exports.userSignIn = (req, res, next) => {
-    if (req.params.type !== 'user') next();
+    if (req.params.type !== 'user') return next();
 
     const email = req.body.email;
     const password = req.body.password;
@@ -13,40 +13,49 @@ exports.userSignIn = (req, res, next) => {
         .then((user) => {
             if (!user) next();
             else {
-                if (user.verify(password)) resolve(user);
-                else next();
+                if (user.verify(password)) return user;
+                else return next();
             }
         })
         .then(createJWT)
         .then((token) => {
-            res.status(201).end(token);
+            res.status(201).json({
+                "token": token
+            });
         })
         .catch((err) => {
-            res.status(400).end(err.message);
+            res.status(400).json({
+                "message": err.message
+            });
         })
 }
 
 
 exports.adminSignIn = (req, res, next) => {
-    if (req.params.type !== 'admin') next();
+    if (req.params.type !== 'admin') return next();
 
     const email = req.body.email;
     const password = req.body.password;
 
     Admin.findOneByEmail(email)
         .then((admin) => {
-            if (!admin) next();
+            console.log(admin);
+            if (!admin) return next();
             else {
-                if (admin.verify(password)) resolve(admin);
-                else next();
+                if (admin.verify(password)) return admin;
+                else return next();
             }
         })
         .then(createJWT)
         .then((token) => {
-            res.status(201).end(token);
+            res.status(201).json({
+                "token": token
+            });
         })
         .catch((err) => {
-            res.status(400).end(err.message);
+            res.status(400).json({
+                "message": err.message
+            });
         })
 
 }

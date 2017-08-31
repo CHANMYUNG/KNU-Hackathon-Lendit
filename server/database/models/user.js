@@ -29,7 +29,7 @@ User.statics.create = function (name, email, password) {
 }
 
 User.statics.findOneByEmail = function (email) {
-    return this.findOne({ email }, {name, email}).exec();
+    return this.findOne({ email }, { "name": 1, "email": 1, "password": 1 }).exec();
 }
 
 

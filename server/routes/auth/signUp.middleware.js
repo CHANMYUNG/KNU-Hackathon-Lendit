@@ -4,7 +4,7 @@ let WAdmin = require('../../database/models/wAdmin');
 const mailer = require('nodemailer');
 
 exports.userSignUp = (req, res, next) => {
-    if (req.params.type !== 'user') next();
+    if (req.params.type !== 'user') return next();
 
     const email = req.body.email; // email
     const name = req.body.name; // name 
@@ -13,8 +13,12 @@ exports.userSignUp = (req, res, next) => {
     let _wUser = {
         '_id': ''
     };
-
-    WUser.create(name, email, password)
+    WUser.remove({
+            "email": email
+        }).exec()
+        .then(() => {
+            return WUser.create(name, email, password);
+        })
         .then((wUser) => {
             _wUser = wUser;
             return sendMail(wUser.email, wUser._id, 'user');
@@ -41,7 +45,7 @@ exports.userSignUp = (req, res, next) => {
 }
 
 exports.adminSignUp = (req, res, next) => {
-    if (req.params.type !== 'admin') next();
+    if (req.params.type !== 'admin') return next();
 
     const email = req.body.email; // email
     const password = req.body.password; // password
@@ -50,8 +54,12 @@ exports.adminSignUp = (req, res, next) => {
     let _wAdmin = {
         '_id': ''
     };
-
-    WAdmin.create(email, password, _agency)
+    WAdmin.remove({
+            "email": email
+        }).exec()
+        .then(() => {
+            return WAdmin.create(email, password, _agency);
+        })
         .then((wAdmin) => {
             _wAdmin = wAdmin;
             return sendMail(wAdmin.email, wAdmin._id, 'admin');
@@ -84,6 +92,7 @@ function sendMail(email, _id, type) {
                 reject(err);
             }
             let transporter = mailer.createTransport({
+                service: 'Gmail',
                 host: 'smtp.gmail.com',
                 port: 465,
                 secure: true, // true for 465, false for other ports
@@ -92,6 +101,7 @@ function sendMail(email, _id, type) {
                     pass: process.env.LENDIT_MAIL_PASS // generated ethereal password
                 }
             });
+            let mailContent = '다음 링크를 클릭해주세요</br><a href= "http://' + process.env.LENDIT_DOMAIN + ":" + process.env.LENDIT_PORT + "/verify/email/" + type + "?hash=" + _id + '">이메일 인증하기</a>';
 
             // setup email data with unicode symbols
             let mailOptions = {
@@ -99,7 +109,7 @@ function sendMail(email, _id, type) {
                 to: email, // list of receivers
                 subject: '[Lendit] 이메일 인증 메일입니다.', // Subject line
                 //text: '다음 링크를 클릭해주세요', // plain text body
-                html: '다음 링크를 클릭해주세요</br><a href= "http://' + process.env.LENDIT_DOMAIN + ":" + process.env.LENDIT_PORT + "/verify/email/" + type + "?hash=" + _id + '">이메일 인증하기</a>' // html body
+                html: mailContent // html body
             };
             console.log(mailOptions.html);
             // send mail with defined transport object

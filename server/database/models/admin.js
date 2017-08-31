@@ -13,7 +13,7 @@ const Admin = Schema({
 
 // create new account
 Admin.statics.create = function (email, password, _agency) {
-
+    
     const date = new Date();
 
     const createdAt = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
@@ -38,7 +38,7 @@ Admin.statics.findOneByEmail = function (email) {
 Admin.statics.findOneBy_agency = function (agency) {
     return this.findOne({
         code
-    }, { email, _agency }).exec()
+    }, { "email": 1, "_agency": 1 }).exec()
 }
 
 // verify user 
