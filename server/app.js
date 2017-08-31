@@ -1,8 +1,6 @@
 let express = require('express');
-let session = require('express-session');
 let bodyparser = require('body-parser');
 let morgan = require('morgan');
-let database = require('./database');
 
 let app = express();
 

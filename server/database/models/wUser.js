@@ -6,7 +6,7 @@ let Schema = mongoose.Schema;
 
 const WUser = Schema({
     name : { type: String, required: true },
-    email : { type: String, required: true, unique: true },
+    email : { type: String, required: true },
     password : { type: String, required: true },
     createdAt : { type: String, required: true }
 }, { collection : 'WUser'});

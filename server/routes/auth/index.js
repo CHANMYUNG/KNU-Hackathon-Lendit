@@ -1,13 +1,18 @@
 let router = require('express').Router();
-let controller = require('./auth.controller');
-let middleware = require('./auth.middleware');
+let signInMiddleware = require('./signIn.middleware');
+let signUpMiddleware = require('./signUp.middleware');
+let verifyMiddleware = require('./verify.middleware');
 
-router.route('/verify/email').get(controller.verifyEmail);
+router.route('/verify/email/:type').get(verifyMiddleware.userVerify, verifyMiddleware.adminVerify, (req, res) => {
+    res.sendStatus(400);
+});
 
-router.route('/signin/:type').post(middleware.userSignIn, middleware.adminSignIn, (req, res) => {
+router.route('/signin/:type').post(signInMiddleware.userSignIn, signInMiddleware.adminSignIn, (req, res) => {
     res.sendStatus(400);
 })
 
-router.route('/signup/:type').post(middleware.userSignUp, middleware.adminSignUp, (req, res) => {
-
+router.route('/signup/:type').post(signUpMiddleware.userSignUp, signUpMiddleware.adminSignUp, (req, res) => {
+    res.sendStatus(404);
 });
+
+module.exports = router;

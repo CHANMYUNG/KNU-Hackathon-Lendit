@@ -5,7 +5,7 @@ const crypto = require('crypto');
 let Schema = mongoose.Schema;
 
 const WAdmin = Schema({
-    email : { type: String, required: true, unique: true},
+    email : { type: String, required: true },
     password : { type: String, required: true },
     createdAt : { type: String, required: true },
     _agency : { type: Schema.Types.ObjectId, ref : 'Agency', required: true, unique: true }
