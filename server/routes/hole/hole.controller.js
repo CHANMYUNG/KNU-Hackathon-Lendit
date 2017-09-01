@@ -5,8 +5,17 @@ let Apply = require('../../database/models/apply');
 
 exports.deleteHole = (req, res) => {
     const hole = req.body.hole;
+    const agency = req.decoded._agency;
+
     Hole.findByIdAndRemove(hole)
         .then((_hole) => {
+            return Agency.findByIdAndUpdate(agency, {
+                $pull: {
+                    "holes": hole
+                }
+            })
+        })
+        .then((_agency) => {
             res.status(200).end();
         })
         .catch((err) => {
