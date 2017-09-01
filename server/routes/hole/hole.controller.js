@@ -3,6 +3,18 @@ let Agency = require('../../database/models/agency');
 let Open = require('../../database/models/open');
 let Apply = require('../../database/models/apply');
 
+exports.deleteHole = (req, res) => {
+    const hole = req.body.hole;
+    Hole.findByIdAndRemove(hole)
+        .then((_hole) => {
+            res.status(200).end();
+        })
+        .catch((err) => {
+            res.status(400).json({
+                "message": err.message
+            });
+        })
+}
 exports.openHole = (req, res) => {
 
     const hole = req.body.hole;
