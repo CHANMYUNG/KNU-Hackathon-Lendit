@@ -39,7 +39,9 @@ exports.agencyCheck = (req, res) => {
         })
         .then((agency) => {
             if (!agency) res.sendStatus(400);
-            else res.sendStatus(200);
+            else res.status(200).json({
+                "name":agency.name
+            });
         })
         .catch((err) => {
             res.sendStatus(400);
