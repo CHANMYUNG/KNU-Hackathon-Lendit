@@ -99,6 +99,10 @@ exports.adminSignUp = (req, res, next) => {
             "email": email
         }).exec()
         .then(() => {
+            return Agency.findById(_agency);
+        })
+        .then((agency)=>{
+            if(!agency) throw new Error('not exist');
             return WAdmin.create(email, password, _agency);
         })
         .then((wAdmin) => {
