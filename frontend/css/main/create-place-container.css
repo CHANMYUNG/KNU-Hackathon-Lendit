@@ -1,10 +1,10 @@
 div#create-place-container {
+    height: 500px;
     text-align: center;
 }
 
 form#create-place-form {
-    margin-top: 128px;
-    margin-bottom: 128px;
+    margin-top: 300px;
 }
 
 form#create-place-form > div >  input[type='text'] {
@@ -16,7 +16,8 @@ form#create-place-form > div >  input[type='text'] {
 }
 
 form#create-place-form > div >  input[type='button'], input[type='submit'] {
-    background-color: 2px solid #4E7AC7;
+    background-color: #4E7AC7;
+    color: white;
     border: 0px;
     font-size: 20pt;
     padding: 16px;
@@ -27,9 +28,13 @@ form#create-place-form > div > input[name='device-code'] {
 }
 
 form#create-place-form > div > input#search-device-code-button {
-    background-color: #4E7AC7;
-    color: white;
     width: 200px;
+}
+
+form#create-place-form > div > input#cancel-search-device-code-button {
+    margin-left: 22px;
+    margin-top: 48px;
+    width: 1270px;
 }
 
 form#create-place-form > div > input[name='name'], input[name='description'] {
@@ -37,5 +42,6 @@ form#create-place-form > div > input[name='name'], input[name='description'] {
 }
 
 form#create-place-form > div > input#create-place-button {
+    margin-top: 48px;
     width: 1440px;
 }

@@ -51,6 +51,10 @@ searchDeviceCodeButton.addEventListener('click', (event) => {
     
     if (deviceCode) {
         alert(`${deviceCode} 에 대응하는 디바이스가 존재합니다`);
+
+        let cancelSearchDeviceCodeButton = document.querySelector('input#cancel-search-device-code-button');
+        cancelSearchDeviceCodeButton.style.display = 'none';
+
         deviceCodeText.parentNode.style.display = 'none';
 
         let nameText = createPlaceForm.elements['name'];
@@ -63,6 +67,29 @@ searchDeviceCodeButton.addEventListener('click', (event) => {
         createPlaceButton.parentNode.style.display = '';
     } else {
         alert('디바이스 코드를 입력해 주세요');
+    }
+
+    event.preventDefault();
+});
+
+const cancelSearchDeviceCodeButton = document.querySelector('input#cancel-search-device-code-button');
+
+cancelSearchDeviceCodeButton.addEventListener('click', (event) => {
+    if (confirm('장소 등록을 취소하시겠습니까?')) {
+        let createPlaceForm = event.target.parentNode.parentNode;
+        
+        let deviceCodeText = createPlaceForm.elements['device-code'];
+        deviceCodeText.value = '';
+
+        createPlaceForm.parentNode.style.display = 'none';
+        
+        let placesContainer = document.querySelector('div#places-container');
+        placesContainer.style.display = '';
+
+        let rentalsContainer = document.querySelector('div#rentals-container');
+        rentalsContainer.style.display = '';
+
+        alert('장소 등록이 취소되었습니다.');
     }
 
     event.preventDefault();

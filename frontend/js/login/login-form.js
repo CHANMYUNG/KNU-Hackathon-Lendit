@@ -21,7 +21,7 @@ joinLink.addEventListener('click', (e) => {
     loginForm.style.display = 'none';
 
     let emailText = loginForm.elements['email'];
-    let passwordText = loginForm.elelemnts['password'];
+    let passwordText = loginForm.elements['password'];
     
     emailText.value = '';
     passwordText.value = '';
