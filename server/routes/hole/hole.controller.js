@@ -8,8 +8,11 @@ exports.openHole = (req, res) => {
     const hole = req.body.hole;
     const openAt = req.body.openAt;
     const closeAt = req.body.closeAt;
-
-    Open.create(hole, openAt, closeAt)
+    Hole.findById(hole)
+        .then((_hole) => {
+            if (!_hole) throw new Error('ERROR');
+            return Open.create(hole, openAt, closeAt);
+        })
         .then((open) => {
 
             let timeOut = new Date(open.closeAt) - new Date(open.createdAt);
