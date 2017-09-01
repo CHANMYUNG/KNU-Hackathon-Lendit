@@ -20,6 +20,12 @@ joinLink.addEventListener('click', (e) => {
     let loginForm = document.getElementById('login-form');
     loginForm.style.display = 'none';
 
+    let emailText = loginForm.elements['email'];
+    let passwordText = loginForm.elelemnts['password'];
+    
+    emailText.value = '';
+    passwordText.value = '';
+
     let joinForm = document.getElementById('join-form');
     joinForm.style.display = '';
 });
