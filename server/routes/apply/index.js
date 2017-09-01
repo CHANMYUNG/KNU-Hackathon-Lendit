@@ -10,4 +10,6 @@ router.route('/apply').post(JWTMiddleware.authMiddleware, JWTMiddleware.onlyUser
 
 router.route('/accept/:apply').get(JWTMiddleware.authMiddleware, JWTMiddleware.onlyAdmin, applyController.acceptApply)
 
+router.route('/apply/history').get(JWTMiddleware.authMiddleware, JWTMiddleware.onlyUser, applyController.getApplyHistory);
+
 module.exports = router;
