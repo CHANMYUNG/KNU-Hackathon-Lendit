@@ -9,19 +9,26 @@ joinForm.addEventListener('submit', (event) => {
     let passwordText = event.target.elements['password'];
     let password = passwordText.value;
     
-    let isNewAccount = event.target.elements['is-new-account'].checked;
+    let isNewAccountCheckBox = event.target.elements['is-new-account'];
+    let isNewAccount = isNewAccountCheckBox.checked;
 
     if (isNewAccount) {
         if (authCode && email && password) {
             if (confirm('이대로 회원가입을 진행하시겠습니까?')) {
                 event.target.style.display = 'none';
 
+                emailText.value = '';
                 emailText.parentNode.style.display = 'none';
+                
+                isNewAccountCheckBox.checked = false;
+
+                passwordText.value = '';
                 passwordText.parentNode.style.display = 'none';
 
                 let joinButton = document.getElementById('join-button');
                 joinButton.parentNode.style.display = 'none';
                 
+                authCodeText.value = '';
                 authCodeText.parentNode.style.display = '';
 
                 let moveLoginButton = document.getElementById('move-login-button');
@@ -51,9 +58,16 @@ moveLoginButton.addEventListener('click', (event) => {
         let joinForm = event.target.parentNode.parentNode;
         joinForm.style.display = 'none';
 
+        let authCodeText = joinForm.elements['auth-code'];
+        authCodeText.value = '';
+
         let loginForm = document.getElementById('login-form');
         loginForm.style.display = '';
+
+        alert('회원가입이 취소되었습니다.');
     } 
+
+    event.preventDefault();
 });
 
 const searchAuthCodeButton = document.getElementById('search-auth-code-button');
@@ -62,7 +76,7 @@ searchAuthCodeButton.addEventListener('click', (event) => {
     let authCodeText = joinForm.elements['auth-code'];
     let authCode = authCodeText.value;
 
-    if (authCode && authCode.length == 16) {
+    if (authCode) {
         if (confirm(`${authCodeText.value}의 관리자가 맞습니까?`)) {
             event.target.parentNode.style.display = 'none';
 
@@ -86,8 +100,10 @@ searchAuthCodeButton.addEventListener('click', (event) => {
             event.preventDefault();
         }
     } else {
-        alert('16자리의 올바른 인증 코드를 입력하세요');
+        alert('인증 코드를 입력하세요');
     }
+
+    event.preventDefault();
 });
 
 const searchDuplicateEmailButton = document.querySelector('input#search-duplicate-email-button');
@@ -108,24 +124,30 @@ searchDuplicateEmailButton.addEventListener('click', (event) => {
 });
 
 const moveAuthCodeCheckButton = document.getElementById('move-auth-code-check-button');
+
 moveAuthCodeCheckButton.addEventListener('click', (event) => {
     event.target.parentNode.style.display = 'none';
-
     let joinForm = event.target.parentNode.parentNode;
 
     let emailText = joinForm.elements['email'];
-    emailText.parentNode.style.display = 'none';
-
     let passwordText = joinForm.elements['password'];
+
+    let isNewAccountCheckBox = joinForm.elements['is-new-account'];
+
+    passwordText.value = '';
     passwordText.parentNode.style.display = 'none';
 
+    emailText.value = '';
+    emailText.parentNode.style.display = 'none';
+
     let joinButton = document.getElementById('join-button');
-    joinButton.parentNode.style.display = 'none';
 
     let authCodeText = joinForm.elements['auth-code'];
-    authCodeText.parentNode.style.display = '';
-
     let moveLoginButton = document.getElementById('move-login-button');
+
+    joinButton.parentNode.style.display = 'none';
+
+    authCodeText.parentNode.style.display = '';
     moveLoginButton.parentNode.style.display = '';
     
     event.preventDefault();

@@ -1,14 +1,25 @@
 div#header  {
-    height: 125px;
     background-color: #35478C;
-}
-
-div#footer {
-    height: 125px;
-    border: 1px solid #95989A;
+    height: 175px;
 }
 
 div#container {
     background-color: #FFFFFF;
     text-align: center;
+}
+
+div#container > div#profile-container {
+    background-color: #EAEAEA;
+}
+
+div#container > div#create-form-container {
+    background-color: #FFFFFF
+}
+
+div#container > div#place-container {
+    background-color: #ADD5F7;
+}
+
+div#container > div#rental-container {
+    background-color: #7FB2F0;
 }

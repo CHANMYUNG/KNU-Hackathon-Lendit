@@ -14,7 +14,7 @@ div.rental-container {
 }
 
 div.rental-info {
-    margin-top: 250px;
+    margin-top: 185px;
     text-align: left;
 }
 
@@ -23,17 +23,27 @@ div.rental-info > p {
     margin-left: 16px;
 }
 
-p.rental-act-buttons {
+div.rental-act-buttons {
     margin-right: 12px;
+    margin-top: 125px;
     text-align: center;
 }
 
-p.rental-act-buttons > input[type='button'] {
+div.rental-act-buttons > input[type='button'] {
     background-color: #4E7AC7;
     border: 1px solid #95989A;
     color: #FFFFFF;
-    font-size: 15pt;
+    font-size: 18pt;
     margin: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px; 
     padding: 8px;
+} 
+
+div.rental-act-buttons > input.accept-button, input.refuse-button {
     width: 260px;
+}
+
+div.rental-act-buttons > input.show-detail-button {
+    width: 538px;
 }

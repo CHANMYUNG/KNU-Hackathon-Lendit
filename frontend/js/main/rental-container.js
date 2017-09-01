@@ -2,18 +2,15 @@ const rentalContainers = document.querySelectorAll('div.rental-container');
 
 for (let container of rentalContainers) {
     container.addEventListener('click', (event) => {
-        let rentalReasonText = container.querySelector('p.rental-reason');
-        let rentalTimeText = container.querySelector('p.rental-time');
-        let rentalActButtons = container.querySelector('p.rental-act-buttons');
+        let rentalInfoBox = container.querySelector('div.rental-info');
+        let rentalActButtonsBox = container.querySelector('div.rental-act-buttons');
 
-        if (container.querySelector('p.rental-act-buttons').style.display === 'none') {
-            rentalReasonText.style.display = 'none'; 
-            rentalTimeText.style.display = 'none'; 
-            rentalActButtons.style.display = '';
+        if (rentalActButtonsBox.style.display === 'none') {
+            rentalInfoBox.style.display = 'none';
+            rentalActButtonsBox.style.display = '';
         } else {
-            rentalActButtons.style.display = 'none';
-            rentalReasonText.style.display = ''; 
-            rentalTimeText.style.display = '';
+            rentalInfoBox.style.display = '';
+            rentalActButtonsBox.style.display = 'none';
         }
 
         event.preventDefault();

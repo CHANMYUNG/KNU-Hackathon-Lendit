@@ -42,7 +42,8 @@ a#join-link {
 }
 
 a#join-link:hover {
-    font-size: 17.5pt;
     color: #35478C;
+    font-size: 17.5pt;
+    font-weight: bold;
     text-decoration: none;
 }

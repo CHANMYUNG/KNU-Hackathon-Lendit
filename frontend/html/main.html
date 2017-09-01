@@ -4,8 +4,9 @@
         <title>Main</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/main/profile-container.css">
+        <link rel="stylesheet" href="../css/main/create-place-container.css">
         <link rel="stylesheet" href="../css/main/places-container.css">
+        <link rel="stylesheet" href="../css/main/profile-container.css">
         <link rel="stylesheet" href="../css/main/rentals-container.css">
     </head>
 
@@ -15,19 +16,18 @@
         
         <div id = "container">
             <div id='profile-container'>
-                <div>
-                    <h1>경북대학교</h1>
-                </div>
+                 <h1>경북대학교</h1>
             </div>
 
             <div id = "places-container">
                 <div class="place-container">
-                    <div class="place-info">
-                        <p class='place-act-buttons' style="display: none">
-                            <input type="button" value="수정" class='edit-button'>
-                            <input type="button" value="삭제" class='delete-button'>
-                        </p>
+                    <div class='place-act-buttons' style="display: none">
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type="button" value="수정" class='edit-button'>
+                        <input type="button" value="삭제" class='delete-button'>
+                    </div>
 
+                    <div class="place-info">
                         <p class='place-name'>
                             강의실 A
                         </p>
@@ -39,12 +39,13 @@
                 </div>
                 
                 <div class="place-container">
+                    <div class='place-act-buttons' style="display: none">
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type="button" value="수정" class='edit-button'>
+                        <input type="button" value="삭제" class='delete-button'>
+                    </div>
+                    
                     <div class="place-info">
-                        <p class='place-act-buttons' style="display: none">
-                            <input type="button" value="수정" class='edit-button'>
-                            <input type="button" value="삭제" class='delete-button'>
-                        </p>
-
                         <p class='place-name'>
                             강의실 B
                         </p>
@@ -56,12 +57,13 @@
                 </div>
 
                 <div class="place-container">
-                    <div class="place-info">
-                        <p class='place-act-buttons' style="display: none">
-                            <input type="button" value="수정" class='edit-button'>
-                            <input type="button" value="삭제" class='delete-button'>
-                        </p>
+                    <div class='place-act-buttons' style="display: none">
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type="button" value="수정" class='edit-button'>
+                        <input type="button" value="삭제" class='delete-button'>
+                    </div>
 
+                    <div class="place-info">
                         <p class='place-name'>
                             강의실 C
                         </p>
@@ -71,14 +73,44 @@
                         </p>
                     </div>
                 </div>
+
+                <div>
+                     <input type="button" value="새로운 장소 등록" id="move-create-place-button">
+                 </div>
             </div>
 
-            <div id = 'rentals-container'>
+            <div id='create-place-container' style='display: none'>
+                <form id='create-place-form'>
+                    <div>
+                        <input type="text" name="device-code" placeholder='디바이스 코드'>
+                        <input type="button" value="조회" id="search-device-code-button">
+                    </div>
+
+                    <div style='display: none'>
+                        <input type="text" name="name" placeholder='이름'>
+                    </div>
+
+                    <div style='display: none'>
+                        <input type="text" name="description" placeholder='설명'>
+                    </div>
+
+                    <div style='display: none'>
+                        <input type='submit' value='등록' id='create-place-button'>
+                    </div>
+                </form>
+            </div>
+
+            <div id='rentals-container'>
                 <div class='rental-container'>
+                    <div class='rental-act-buttons' style='display: none'>
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type='button' value="승인" class='accept-button'>
+                        <input type='button' value="거절" class='refuse-button'>
+                    </div>
+
                     <div class='rental-info'>
-                        <p class='rental-act-buttons' style='display: none'>
-                            <input type='button' value="승인" class='accept-button'>
-                            <input type='button' value="거절" class='refuse-button'>
+                        <p class='rental-place-name'>
+                            강당
                         </p>
 
                         <p class='rental-reason'>
@@ -93,10 +125,15 @@
                 </div>
                 
                 <div class="rental-container">
+                    <div class='rental-act-buttons' style='display: none'>
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type='button' value="승인" class='accept-button'>
+                        <input type='button' value="거절" class='refuse-button'>
+                    </div>
+
                     <div class="rental-info">
-                        <p class='rental-act-buttons' style='display: none'>
-                            <input type='button' value="승인" class='accept-button'>
-                            <input type='button' value="거절" class='refuse-button'>
+                        <p class='rental-place-name'>
+                            강당
                         </p>
 
                         <p class='rental-reason'>
@@ -111,10 +148,15 @@
                 </div>
 
                 <div class="rental-container">
+                    <div class='rental-act-buttons' style='display: none'>
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type='button' value="승인" class='accept-button'>
+                        <input type='button' value="거절" class='refuse-button'>
+                    </div>
+
                     <div class="rental-info">
-                        <p class='rental-act-buttons' style='display: none'>
-                            <input type='button' value="승인" class='accept-button'>
-                            <input type='button' value="거절" class='refuse-button'>
+                        <p class='rental-place-name'>
+                            강당
                         </p>
 
                         <p class='rental-reason'>
@@ -129,10 +171,15 @@
                 </div>
 
                 <div class="rental-container">
+                    <div class='rental-act-buttons' style='display: none'>
+                        <input type="button" value="자세히 보기" class="show-detail-button">
+                        <input type='button' value="승인" class='accept-button'>
+                        <input type='button' value="거절" class='refuse-button'>
+                    </div>
+
                     <div class="rental-info">
-                        <p class='rental-act-buttons' style='display: none'>
-                            <input type='button' value="승인" class='accept-button'>
-                            <input type='button' value="거절" class='refuse-button'>
+                        <p class='rental-place-name'>
+                            강당
                         </p>
 
                         <p class='rental-reason'>
@@ -147,11 +194,9 @@
                 </div>
             </div>
         </div>
-
-        <div id="footer">
-        </div>
-
+        
         <script type='text/javascript' src='../js/main/place-container.js'></script>
+        <script type='text/javascript' src='../js/main/create-place-container.js'></script>
         <script type='text/javascript' src='../js/main/rental-container.js'></script>
     </body>
 </html>

@@ -2,18 +2,15 @@ const placeContainers = document.querySelectorAll('div.place-container');
 
 for (let container of placeContainers) {
     container.addEventListener('click', (event) => {
-        let placeNameText = container.querySelector('p.place-name');
-        let placeAvailableDateText = container.querySelector('p.place-available-date');
-        let placeActButtons = container.querySelector('p.place-act-buttons');
+        let placeInfoBox = container.querySelector('div.place-info');
+        let placeActButtonsBox = container.querySelector('div.place-act-buttons');
 
-        if (container.querySelector('p.place-act-buttons').style.display === 'none') {
-            placeNameText.style.display = 'none'; 
-            placeAvailableDateText.style.display = 'none'; 
-            placeActButtons.style.display = '';
+        if (placeActButtonsBox.style.display === 'none') {
+            placeInfoBox.style.display = 'none';
+            placeActButtonsBox.style.display = '';
         } else {
-            placeActButtons.style.display = 'none';
-            placeNameText.style.display = ''; 
-            placeAvailableDateText.style.display = '';
+            placeInfoBox.style.display = '';
+            placeActButtonsBox.style.display = 'none';
         }
 
         event.preventDefault();
@@ -38,3 +35,18 @@ for (let container of placeContainers) {
         event.preventDefault();
     });
 }
+
+const moveCreatePlaceButton = document.querySelector('input#move-create-place-button');
+
+moveCreatePlaceButton.addEventListener('click', (event) => {
+    let placesContainer = document.querySelector('div#places-container');
+    placesContainer.style.display = 'none';
+
+    let rentalsContainer = document.querySelector('div#rentals-container');
+    rentalsContainer.style.display = 'none';
+
+    let createPlaceContainer = document.querySelector('div#create-place-container');
+    createPlaceContainer.style.display = '';
+
+    event.preventDefault();
+});

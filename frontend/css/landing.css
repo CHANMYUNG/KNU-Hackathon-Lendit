@@ -1,10 +1,6 @@
 div#header {
     background-color: #35478C;
-    height: 125px;
-}
-
-div#footer {
-    height: 125px;
+    height: 175px;
 }
 
 div#container {
@@ -12,7 +8,7 @@ div#container {
     height: 900px;
 }
 
-div#form-section {
+div#form-container {
     background-color: #FFFFFF;
     float: right;
     height: 900px;
@@ -20,7 +16,7 @@ div#form-section {
     width: 780px;
 }
 
-div#form-section > form > div {
+div#form-container > form > div {
     margin: 32px;
     margin-top: 48px;
     margin-bottom: 48px;
