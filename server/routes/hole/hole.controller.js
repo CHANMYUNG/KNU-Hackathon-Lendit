@@ -69,3 +69,17 @@ exports.getHoles = (req, res) => {
             });
         })
 }
+
+exports.getKNUHoles = (req, res) => {
+    Agency.findOne({
+            "name": "경북대학교"
+        }).populate('holes')
+        .then((agency) => {
+            res.status(200).json(agency.holes);
+        })
+        .catch((err) => {
+            res.status(500).json({
+                "message": err.message
+            });
+        })
+}
