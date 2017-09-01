@@ -38,8 +38,11 @@ exports.agencyCheck = (req, res) => {
             "_admin": null
         })
         .then((agency) => {
-            if (!agency) res.sendStatus(409);
+            if (!agency) res.sendStatus(400);
             else res.sendStatus(200);
+        })
+        .catch((err) => {
+            res.sendStatus(400);
         })
 }
 
@@ -101,8 +104,8 @@ exports.adminSignUp = (req, res, next) => {
         .then(() => {
             return Agency.findById(_agency);
         })
-        .then((agency)=>{
-            if(!agency) throw new Error('not exist');
+        .then((agency) => {
+            if (!agency) throw new Error('not exist');
             return WAdmin.create(email, password, _agency);
         })
         .then((wAdmin) => {
