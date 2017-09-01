@@ -14,7 +14,7 @@ const WUser = Schema({
 
 
 // create new account
-WUser.statics.create = function (name, email, password) {
+WUser.statics.create = function (name, email, password, RFIDKey) {
     this.remove({ email });
     const encrypted = crypto.createHmac('sha1', secret)
         .update(password)
@@ -29,7 +29,8 @@ WUser.statics.create = function (name, email, password) {
         email,
         "password": encrypted,
         name,
-        createdAt
+        createdAt,
+        RFIDKey
     })
     return wUser.save();
 }
