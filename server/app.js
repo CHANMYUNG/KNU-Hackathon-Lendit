@@ -1,12 +1,14 @@
 let express = require('express');
 let bodyparser = require('body-parser');
 let morgan = require('morgan');
-
+let cors = require('cors');
 let app = express();
 
 
 let database = require('./database');
 let router = require('./routes');
+
+app.use(cors())
 
 app.use(morgan('dev'));
 
