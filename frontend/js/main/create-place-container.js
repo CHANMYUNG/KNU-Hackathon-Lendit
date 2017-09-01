@@ -1,4 +1,4 @@
-const createPlaceForm = document.querySelector('form#create-place-form');
+let createPlaceForm = document.querySelector('form#create-place-form');
 
 createPlaceForm.addEventListener('submit', (event) => {
     let deviceCodeText = event.target.elements['device-code'];
@@ -41,7 +41,7 @@ createPlaceForm.addEventListener('submit', (event) => {
     event.preventDefault();
 });
 
-const searchDeviceCodeButton = document.querySelector('input#search-device-code-button');
+let searchDeviceCodeButton = document.querySelector('input#search-device-code-button');
 
 searchDeviceCodeButton.addEventListener('click', (event) => {
     let createPlaceForm = event.target.parentNode.parentNode;
@@ -53,7 +53,7 @@ searchDeviceCodeButton.addEventListener('click', (event) => {
         alert(`${deviceCode} 에 대응하는 디바이스가 존재합니다`);
 
         let cancelSearchDeviceCodeButton = document.querySelector('input#cancel-search-device-code-button');
-        cancelSearchDeviceCodeButton.style.display = 'none';
+        cancelSearchDeviceCodeButton.parentNode.style.display = 'none';
 
         deviceCodeText.parentNode.style.display = 'none';
 
@@ -72,7 +72,7 @@ searchDeviceCodeButton.addEventListener('click', (event) => {
     event.preventDefault();
 });
 
-const cancelSearchDeviceCodeButton = document.querySelector('input#cancel-search-device-code-button');
+let cancelSearchDeviceCodeButton = document.querySelector('input#cancel-search-device-code-button');
 
 cancelSearchDeviceCodeButton.addEventListener('click', (event) => {
     if (confirm('장소 등록을 취소하시겠습니까?')) {
@@ -91,6 +91,33 @@ cancelSearchDeviceCodeButton.addEventListener('click', (event) => {
 
         alert('장소 등록이 취소되었습니다.');
     }
+
+    event.preventDefault();
+});
+
+let cancelCreatePanelbutton = document.querySelector('input#cancel-create-place-button');
+
+cancelCreatePanelbutton.addEventListener('click', (event) => {
+    event.target.parentNode.style.display = 'none';
+    let createPlaceForm = document.querySelector('form#create-place-form');
+
+    let nameText = createPlaceForm.elements['name'];
+    nameText.value = '';
+    nameText.parentNode.style.display = 'none';
+
+    let descriptionText = createPlaceForm.elements['description'];
+    descriptionText.value = '';
+    descriptionText.parentNode.style.display = 'none';
+
+    let createPlaceButton = document.querySelector('input#create-place-button');
+    createPlaceButton.parentNode.style.display = 'none';
+
+    let authCodeText = createPlaceForm.elements['device-code'];
+    authCodeText.parentNode.style.display = '';
+
+    let cancelSearchDeviceCodeButton = document.querySelector('input#cancel-search-device-code-button')
+    console.log(cancelSearchDeviceCodeButton)
+    cancelSearchDeviceCodeButton.parentNode.style.display = '';
 
     event.preventDefault();
 });
