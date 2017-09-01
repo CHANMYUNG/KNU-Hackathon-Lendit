@@ -1,0 +1,88 @@
+form#join-form {
+    margin-top: 315px;
+}
+
+form#join-form > h1 {
+    color: #95989A;
+    font-size: 30pt;
+    font-weight: normal !important;
+    float: left;
+    margin-left: 32px;
+}
+
+form#join-form > div > input[name='auth-code'] {
+    width: 500px;
+    margin-right: 16px;
+    font-size: 20pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+input#search-auth-code-button {
+    width: 100px;
+    font-size: 15pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #4E7AC7;
+    color: #FFFFFF;
+}
+
+input#move-login-button {
+    width: 660px;
+    font-size: 15pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #35478C;;
+    color: #FFFFFF;
+}
+
+form#join-form > div > input[name='email'] {
+    width: 475px;
+    font-size: 20pt;
+    padding: 16px;
+    margin-right: 18px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+    display: inline-block;
+}
+
+form#join-form > div > input#search-duplicate-email-button {
+    width: 185px;
+    font-size: 15pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #4E7AC7;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+form#join-form > div > input[name='password'] {
+    width: 700px;
+    font-size: 20pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+form#join-form > div > input#join-button {
+    width: 345px;
+    font-size: 18pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    margin: 4px;
+    background-color: #35478C;
+    color: #FFFFFF;
+    display:inline-block;
+}
+
+form#join-form > div > input#move-auth-code-check-button {
+    width: 325px;
+    font-size: 18pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    margin: 4px;
+    background-color: #35478C;
+    color: #FFFFFF;
+    display:inline-block;
+}

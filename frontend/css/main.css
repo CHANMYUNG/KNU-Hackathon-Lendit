@@ -1,0 +1,14 @@
+div#header  {
+    height: 125px;
+    background-color: #35478C;
+}
+
+div#footer {
+    height: 125px;
+    border: 1px solid #95989A;
+}
+
+div#container {
+    background-color: #FFFFFF;
+    text-align: center;
+}

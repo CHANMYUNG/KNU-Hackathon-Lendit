@@ -1,0 +1,39 @@
+div#rentals-container {
+    background-color: #7FB2F0;
+    text-align: center;
+}
+
+div.rental-container {
+    width: 600px;
+    height: 350px;
+    margin: 16px;
+    margin-top: 128px;
+    margin-bottom: 128px;
+    background-color: #FFFFFF;
+    display: inline-block;
+}
+
+div.rental-info {
+    margin-top: 250px;
+    text-align: left;
+}
+
+div.rental-info > p {
+    font-size: 18pt;
+    margin-left: 16px;
+}
+
+p.rental-act-buttons {
+    margin-right: 12px;
+    text-align: center;
+}
+
+p.rental-act-buttons > input[type='button'] {
+    background-color: #4E7AC7;
+    border: 1px solid #95989A;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin: 4px;
+    padding: 8px;
+    width: 260px;
+}

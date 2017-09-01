@@ -1,0 +1,40 @@
+div#places-container {
+    background-color: #ADD5F7;
+    text-align: center;
+}
+
+div.place-container {
+    width: 450px;
+    height: 425px;
+    margin: 16px;
+    margin-top: 128px;
+    margin-bottom: 128px; 
+    background-color: #FFFFFF;
+    display: inline-block;
+}
+
+div.place-info {
+    text-align: left;
+    margin-top: 325px;
+    margin-bottom: 0px;
+}
+
+div.place-info > p {
+    font-size: 18pt;
+    margin-left: 16px;
+}
+
+p.place-act-buttons {
+    margin-right: 12px;
+    text-align: center;
+}
+
+p.place-act-buttons > input[type='button'] {
+    background-color: #4E7AC7;
+    border: 1px solid #95989A;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin: 4px;
+    padding: 8px;
+    width: 185px;
+}
