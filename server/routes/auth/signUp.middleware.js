@@ -1,7 +1,47 @@
 let WUser = require('../../database/models/wUser');
 let WAdmin = require('../../database/models/wAdmin');
+let User = require('../../database/models/user');
+let Admin = require('../../database/models/admin');
+let Agency = require('../../database/models/agency');
 
 const mailer = require('nodemailer');
+
+
+exports.emailCheck = (req, res) => {
+    const email = req.params.email;
+
+    User.findOne({
+            email
+        })
+        .then((user) => {
+            if (user) throw new Error('conflict');
+            return Admin.findOne({
+                email
+            });
+        })
+        .then((admin) => {
+            if (admin) throw new Error('conflict');
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(err.message);
+            if (err.message === 'conflict') res.sendStatus(409);
+            else res.sendStatus(500);
+        })
+}
+
+exports.agencyCheck = (req, res) => {
+    const agency = req.params.agency;
+
+    Agency.findOne({
+            "_id": agency,
+            "_admin": null
+        })
+        .then((agency) => {
+            if (!agency) res.sendStatus(409);
+            else res.sendStatus(200);
+        })
+}
 
 exports.userSignUp = (req, res, next) => {
     if (req.params.type !== 'user') return next();

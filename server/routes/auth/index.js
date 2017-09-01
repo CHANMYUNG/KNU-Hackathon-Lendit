@@ -15,4 +15,8 @@ router.route('/signup/:type').post(signUpMiddleware.userSignUp, signUpMiddleware
     res.sendStatus(404);
 });
 
+router.route('/check/email/:email').get(signUpMiddleware.emailCheck);
+
+router.route('/check/agency/:agency').get(signUpMiddleware.agencyCheck);
+
 module.exports = router;

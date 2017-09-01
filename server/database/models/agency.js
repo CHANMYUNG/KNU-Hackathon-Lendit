@@ -5,8 +5,8 @@ let Schema = mongoose.Schema;
 
 const Agency = Schema({
     name : { type: String, required: true, unique: true },
-    _admin: { type: Schema.Types.ObjectId, ref: 'Admin', unique: true },
-    holes: [{ type: JSON, default : null }],
+    _admin: { type: Schema.Types.ObjectId, ref: 'Admin', default: null },
+    holes: { type: Array, default : [] },
     createdAt : { type: String, required: true },
     area: { type: String, required: true }
 }, { collection : 'Agency'});
