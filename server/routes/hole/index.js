@@ -7,5 +7,4 @@ router.route('/hole').post(JWTMiddleware.authMiddleware, JWTMiddleware.onlyAdmin
 
 router.route('/hole/open').post(JWTMiddleware.authMiddleware, JWTMiddleware.onlyAdmin, holeController.openHole);
 
-router.route('/hole/apply').post(JWTMiddleware.authMiddleware, JWTMiddleware.onlyUser, holeController.apply);
 module.exports = router;

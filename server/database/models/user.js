@@ -8,12 +8,13 @@ const User = Schema({
     name : { type: String, required: true },
     email : { type: String, required: true, unique: true},
     password : { type: String, required: true },
-    createdAt : { type: String, required: true }
+    createdAt : { type: String, required: true },
+    RFIDKey: { type: String, required: true, unique: true}
 }, { collection : 'User'});
 
 
 // create new account
-User.statics.create = function (name, email, password) {
+User.statics.create = function (name, email, password, RFIDKey) {
     const date = new Date();
 
     const createdAt = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
@@ -23,7 +24,8 @@ User.statics.create = function (name, email, password) {
         email,
         password,
         name,
-        createdAt
+        createdAt,
+        RFIDKey
     })
     return user.save();
 }

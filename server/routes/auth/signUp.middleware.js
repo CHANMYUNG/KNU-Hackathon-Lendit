@@ -49,6 +49,7 @@ exports.userSignUp = (req, res, next) => {
     const email = req.body.email; // email
     const name = req.body.name; // name 
     const password = req.body.password; // password
+    const RFIDKey = req.body.RFIDKey;
 
     let _wUser = {
         '_id': ''
@@ -57,7 +58,7 @@ exports.userSignUp = (req, res, next) => {
             "email": email
         }).exec()
         .then(() => {
-            return WUser.create(name, email, password);
+            return WUser.create(name, email, password, RFIDKey);
         })
         .then((wUser) => {
             _wUser = wUser;

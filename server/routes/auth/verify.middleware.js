@@ -15,7 +15,7 @@ exports.userVerify = (req, res, next) => {
         .then((wUser) => {
             console.log(wUser);
             if (!wUser) throw new Error('404');
-            return User.create(wUser.name, wUser.email, wUser.password)
+            return User.create(wUser.name, wUser.email, wUser.password, wUser.RFIDKey)
         })
         .then((user) => {
             res.status(201).end("<script>alert('인증 완료되었습니다. 로그인해주세요.')</script>");
