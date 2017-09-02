@@ -136,14 +136,30 @@ let initHoleList = (holes) => {
                         acceptApplyButton.setAttribute('class', 'accept-apply-button');
 
                         acceptApplyButton.value = '승인';
+                        acceptApplyButton.onclick = (event) => {
+                            if (confirm('요청을 승인하시겠습니까?')) {
+                                alert('요청이 승인되었습니다');
+                                
+                                let applyContainer = event.target.parentNode.parentNode;
+                                applyContainer.style.display = 'none';
+                            }
+                        };
 
                         let refuseApplyButton = document.createElement('input');
                         refuseApplyButton.setAttribute('type', 'button');
                         refuseApplyButton.setAttribute('class', 'refuse-apply-button');
 
                         refuseApplyButton.value = '거절';
+                        refuseApplyButton.onclick = (event) => {
+                            if (confirm('요청을 거절하시겠습니까?')) {
+                                alert('요청이 거절되었습니다');
 
-                        applyInfoContainer.appendChild(applyPurposeParagraph);
+                                let applyContainer = event.target.parentNode.parentNode;
+                                applyContainer.style.display = 'none';
+                            }
+                        };
+
+                        applyInfoContainer.appendChild(applyPurposeParagraph)
                         
                         applyTimeParagraph.appendChild(applyStartAtParagraph);
                         applyTimeParagraph.appendChild(applyEndAtParagraph);
