@@ -5,6 +5,7 @@ let cors = require('cors');
 let app = express();
 
 
+
 let database = require('./database');
 let router = require('./routes');
 
@@ -20,9 +21,9 @@ app.use(bodyparser.json());
 
 app.use('/', router);
 
-app.set('jwt-secret', process.env.LENDIT_JWT_SECRET);
-app.set('port', process.env.LENDIT_PORT);
-
+app.set('jwt-secret', 'zxmkjuinnhnkrngcniun128');
+app.set('port', 8080);
+app.set('')
 app.listen(app.get('port'), function () {
     console.log('NOW, SERVER IS RUNNING');
     database();

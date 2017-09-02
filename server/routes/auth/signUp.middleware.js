@@ -147,11 +147,11 @@ function sendMail(email, _id, type) {
                 port: 465,
                 secure: true, // true for 465, false for other ports
                 auth: {
-                    user: process.env.LENDIT_MAIL_USER, // generated ethereal user
-                    pass: process.env.LENDIT_MAIL_PASS // generated ethereal password
+                    user: 'nooheat1228@gmail.com', // generated ethereal user
+                    pass: 'xogns1228' // generated ethereal password
                 }
             });
-            let mailContent = '다음 링크를 클릭해주세요</br><a href= "http://' + process.env.LENDIT_DOMAIN + ":" + process.env.LENDIT_PORT + "/verify/email/" + type + "?hash=" + _id + '">이메일 인증하기</a>';
+            let mailContent = '다음 링크를 클릭해주세요</br><a href= "http://' + '13.124.15.202' + ":" + '8080' + "/verify/email/" + type + "?hash=" + _id + '">이메일 인증하기</a>';
 
             // setup email data with unicode symbols
             let mailOptions = {

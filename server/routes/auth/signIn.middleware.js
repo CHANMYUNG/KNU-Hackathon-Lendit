@@ -2,7 +2,7 @@ let User = require('../../database/models/user');
 let Admin = require('../../database/models/admin');
 
 const jwt = require('jsonwebtoken');
-const secret = process.env.LENDIT_JWT_SECRET;
+const secret = 'zxmkjuinnhnkrngcniun128';
 exports.userSignIn = (req, res, next) => {
     if (req.params.type !== 'user') return next();
 

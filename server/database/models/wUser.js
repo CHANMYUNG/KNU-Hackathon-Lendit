@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const secret = process.env.LENDIT_JWT_SECRET;
+const secret = 'zxmkjuinnhnkrngcniun128';
 
 const crypto = require('crypto');
 let Schema = mongoose.Schema;
