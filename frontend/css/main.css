@@ -107,11 +107,12 @@ div#main-container > div#show-hole-detail-container > div#hole-detail-container 
 /* create new hole */
 
 div#main-container > div#create-hole-container {
-    background-color: #FFFFFF;
+    background-color: #4E7AC7;
     text-align: center;
 }
 
 div#main-container > div#create-hole-container > form#create-hole-form {
+    background-color: #FFFFFF;
     margin-top: 75px;
     margin-bottom: 75px;
 }
@@ -173,7 +174,7 @@ div#main-container > div#show-hole-detail-container {
 div#main-container > div#show-hole-detail-container > div {
     background-color: #FFFFFF;
     display: inline-block;
-    height: 600px;
+    height: 700px;
     margin: 0px auto;
     margin-left: 25px;
     margin-right: 25px;
@@ -238,11 +239,19 @@ div.apply-container {
     display: inline-block;
 }
 
-div.apply-container > div.apply-act-buttons-container > input[type='button'] {
+div#show-applies-container > div.apply-container > div.apply-act-buttons-container > input[type='button'] {
     border: 0px;
     font-size: 10pt;
     margin: 8px;
     padding: 8px;
     width: 70px;
     display: inline-block;
+}
+
+div#show-applies-container > div.apply-container > div.apply-info-container > p.apply-purpose {
+    font-size: 20pt;
+}
+
+div#show-applies-container > div.apply-container > div.apply-info-container > p.apply-user-name {
+    font-size: 13pt;
 }

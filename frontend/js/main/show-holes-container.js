@@ -75,7 +75,7 @@ let initHoleList = (holes) => {
                                 if (result) {
                                     alert('새로운 시간대를 성공적으로 개방하였습니다');
 
-                                    let showHoleDetailContainer = document.querySelector('div#hole-detail-container');
+                                    let showHoleDetailContainer = document.querySelector('div#show-hole-detail-container');
                                     showHoleDetailContainer.style.display = 'none';
                                     
                                     let showHolesContainer = document.querySelector('div#show-holes-container');
@@ -113,7 +113,7 @@ let initHoleList = (holes) => {
                         applyActButtonsContainer.setAttribute('class', 'apply-act-buttons-container');
 
                         let applyTimeParagraph = document.createElement('p');
-                        applyTimeParagraph.setAttribute('class', display-actvie);
+                        applyTimeParagraph.setAttribute('class', 'display-actvie');
                         
                         let applyPurposeParagraph = document.createElement('p');
                         applyPurposeParagraph.innerText = apply.purpose;
