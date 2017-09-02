@@ -1,6 +1,7 @@
-const joinForm = document.getElementById('join-form');
+const joinForm = document.getElementById('join-form');  
+
 joinForm.addEventListener('submit', (event) => {
-    let authCodeText = event.target.elements['auth-code'];
+    let authCodeText = event.target.elements['agency'];
     let authCode = authCodeText.value;
 
     let emailText = event.target.elements['email'];
@@ -15,32 +16,43 @@ joinForm.addEventListener('submit', (event) => {
     if (isNewAccount) {
         if (authCode && email && password) {
             if (confirm('이대로 회원가입을 진행하시겠습니까?')) {
-                event.target.style.display = 'none';
+                join(email, password, authCode, (result) => {
+                    if (result) {
+                        alert('회원가입이 성공적으로 완료되었습니다');
+                        alert('회원님의 이메일 계정으로 가입 인증 메일이 전송되었습니다'); 
 
-                emailText.value = '';
-                emailText.parentNode.style.display = 'none';
-                
-                isNewAccountCheckBox.checked = false;
+                        event.target.style.display = 'none';
 
-                passwordText.value = '';
-                passwordText.parentNode.style.display = 'none';
+                        emailText.value = '';
+                        emailText.parentNode.style.display = 'none';
+                        
+                        isNewAccountCheckBox.checked = false;
 
-                let joinButton = document.getElementById('join-button');
-                joinButton.parentNode.style.display = 'none';
-                
-                authCodeText.value = '';
-                authCodeText.parentNode.style.display = '';
+                        passwordText.value = '';
+                        passwordText.parentNode.style.display = 'none';
 
-                let moveLoginButton = document.getElementById('move-login-button');
-                moveLoginButton.parentNode.style.display = '';
+                        let joinButton = document.getElementById('join-button');
+                        joinButton.parentNode.style.display = 'none';
+                        
+                        let cancelJoinButton = document.getElementById('cancel-join-button');
+                        cancelJoinButton.parentNode.style.display = 'none';
 
-                event.target.style.marginTop = '325px';
-                event.target.style.display = 'none';
+                        authCodeText.value = '';
+                        authCodeText.parentNode.style.display = '';
 
-                let loginForm = document.getElementById('login-form');
-                loginForm.style.display = '';
+                        let cancelSearchAgencyButton = document.getElementById('cancel-search-agency-button');
+                        cancelSearchAgencyButton.parentNode.style.display = '';
 
-                alert('회원가입이 성공적으로 완료되었습니다');
+                        event.target.style.marginTop = '325px';
+                        event.target.style.display = 'none';
+
+                        let loginForm = document.getElementById('login-form');
+                        loginForm.style.display = '';
+                    } else {
+                        alert('회원가입에 실패하였습니다');
+                        alert('올바른 값을 입력했는지 확인하세요');
+                    }    
+                });                
             }
         } else {
             alert('회원 정보를 입력해주세요');
@@ -52,14 +64,15 @@ joinForm.addEventListener('submit', (event) => {
     event.preventDefault();
 });
 
-const moveLoginButton = document.getElementById('move-login-button');
-moveLoginButton.addEventListener('click', (event) => {
+let cancelSearchAgencyButton = document.getElementById('cancel-search-agency-button');
+
+cancelSearchAgencyButton.addEventListener('click', (event) => {
     if (confirm('회원가입을 취소하시겠습니까?')) {
         let joinForm = event.target.parentNode.parentNode;
         joinForm.style.display = 'none';
 
-        let authCodeText = joinForm.elements['auth-code'];
-        authCodeText.value = '';
+        let agencyText = joinForm.elements['agency'];
+        agencyText.value = '';
 
         let loginForm = document.getElementById('login-form');
         loginForm.style.display = '';
@@ -70,35 +83,42 @@ moveLoginButton.addEventListener('click', (event) => {
     event.preventDefault();
 });
 
-const searchAuthCodeButton = document.getElementById('search-auth-code-button');
-searchAuthCodeButton.addEventListener('click', (event) => {
+let searchAgencyButton = document.getElementById('search-agency-button');
+
+searchAgencyButton.addEventListener('click', (event) => {
     let joinForm = event.target.parentNode.parentNode;
-    let authCodeText = joinForm.elements['auth-code'];
-    let authCode = authCodeText.value;
+    let agencyText = joinForm.elements['agency'];
+    let agency = agencyText.value;
 
-    if (authCode) {
-        if (confirm(`${authCodeText.value}의 관리자가 맞습니까?`)) {
-            event.target.parentNode.style.display = 'none';
+    if (agency) {
+        checkAgency(agency, (result, data) => {
+            if (result) {
+                if (confirm(`${data.name}의 관리자가 맞습니까?`)) {
+                    event.target.parentNode.style.display = 'none';
 
-            let moveLoginButton = document.getElementById('move-login-button');
-            moveLoginButton.parentNode.style.display = 'none';
+                    let cancelSearchAgencyButton = document.getElementById('cancel-search-agency-button');
+                    cancelSearchAgencyButton.parentNode.style.display = 'none';
 
-            joinForm.style.marginTop = '300px';
+                    joinForm.style.marginTop = '300px';
 
-            let emailText = joinForm.elements['email'];
-            emailText.parentNode.style.display = '';
+                    let emailText = joinForm.elements['email'];
+                    emailText.parentNode.style.display = '';
 
-            let passwordText = joinForm.elements['password'];
-            passwordText.parentNode.style.display = '';
+                    let passwordText = joinForm.elements['password'];
+                    passwordText.parentNode.style.display = '';
 
-            let joinButton = document.getElementById('join-button');
-            joinButton.parentNode.style.display = '';
+                    let joinButton = document.getElementById('join-button');
+                    joinButton.parentNode.style.display = '';
 
-            let moveAuthCodeCheckButton = document.getElementById('move-auth-code-check-button');
-            moveAuthCodeCheckButton.parentNode.style.display = '';
-            
-            event.preventDefault();
-        }
+                    let cancelJoinButton = document.querySelector('input#cancel-join-button');
+                    cancelJoinButton.parentNode.style.display = '';
+                    
+                    event.preventDefault();
+                }
+            } else {
+                alert('유효하지 않은 인증 코드입니다');
+            }
+        });
     } else {
         alert('인증 코드를 입력하세요');
     }
@@ -106,16 +126,23 @@ searchAuthCodeButton.addEventListener('click', (event) => {
     event.preventDefault();
 });
 
-const searchDuplicateEmailButton = document.querySelector('input#search-duplicate-email-button');
+let searchDuplicateEmailButton = document.querySelector('input#search-duplicate-email-button');
+
 searchDuplicateEmailButton.addEventListener('click', (event) => {
     let joinForm = event.target.parentNode.parentNode;
     let email = joinForm.elements['email'].value;
+    let isNewAccountCheckBox = joinForm.elements['is-new-account'];
 
     if (email) {
-        alert('중복되는 사용자가 없습니다');
-        
-        let isNewAccountCheckBox = joinForm.elements['is-new-account'];
-        isNewAccountCheckBox.checked = true;
+        checkEmail(email, (result) => {
+            if (result) {
+                alert('중복되는 이메일이 존재하지 않습니다');
+                isNewAccountCheckBox.checked = true;            
+            } else {
+                alert('중복되는 이메일이 이미 존재합니다');
+                isNewAccountCheckBox.checked = false;
+            }
+        });
     } else {
         alert('이메일 주소를 입력해주세요')
     }
@@ -123,9 +150,9 @@ searchDuplicateEmailButton.addEventListener('click', (event) => {
     event.preventDefault();
 });
 
-const moveAuthCodeCheckButton = document.getElementById('move-auth-code-check-button');
+let cancelJoinButton = document.querySelector('input#cancel-join-button');
 
-moveAuthCodeCheckButton.addEventListener('click', (event) => {
+cancelJoinButton.addEventListener('click', (event) => {
     event.target.parentNode.style.display = 'none';
     let joinForm = event.target.parentNode.parentNode;
 
@@ -140,15 +167,15 @@ moveAuthCodeCheckButton.addEventListener('click', (event) => {
     emailText.value = '';
     emailText.parentNode.style.display = 'none';
 
-    let joinButton = document.getElementById('join-button');
+    let joinButton = document.querySelector('input#join-button');
 
-    let authCodeText = joinForm.elements['auth-code'];
-    let moveLoginButton = document.getElementById('move-login-button');
+    let agencyText = joinForm.elements['agency'];
+    let cancelSearchAgencyButton = document.querySelector('input#cancel-search-agency-button');
 
     joinButton.parentNode.style.display = 'none';
 
-    authCodeText.parentNode.style.display = '';
-    moveLoginButton.parentNode.style.display = '';
+    agencyText.parentNode.style.display = '';
+    cancelSearchAgencyButton.parentNode.style.display = '';
     
     event.preventDefault();
 });

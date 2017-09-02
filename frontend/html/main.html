@@ -4,204 +4,77 @@
         <title>Main</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/main/create-place-container.css">
-        <link rel="stylesheet" href="../css/main/places-container.css">
-        <link rel="stylesheet" href="../css/main/profile-container.css">
-        <link rel="stylesheet" href="../css/main/rentals-container.css">
     </head>
 
     <body>
-        <div id="header">
+        <div id="header-container">
         </div>
         
-        <div id = "container">
-            <div id='profile-container'>
+        <div id="main-container">
+            <div id='show-profile-container'>
                  <h1>경북대학교</h1>
+                 <div>
+                     <input type="button" value="새로운 공간 등록" id="move-create-hole-button">
+                </div>
             </div>
 
-            <div id = "places-container">
-                <div class="place-container">
-                    <div class='place-act-buttons' style="display: none">
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type="button" value="수정" class='edit-button'>
-                        <input type="button" value="삭제" class='delete-button'>
-                    </div>
+            <div id="show-holes-container">
+            </div>
+            
+            <div id="show-hole-detail-container" style="display: none">
+                <div>
+                    <p id='hole-detail-name'></p>
+                    <p id='hole-detail-explain'></p>
 
-                    <div class="place-info">
-                        <p class='place-name'>
-                            강의실 A
-                        </p>
-
-                        <p class='place-available-date'>
-                            YYYY-MM-DD HH:MM:SS
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="place-container">
-                    <div class='place-act-buttons' style="display: none">
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type="button" value="수정" class='edit-button'>
-                        <input type="button" value="삭제" class='delete-button'>
-                    </div>
-                    
-                    <div class="place-info">
-                        <p class='place-name'>
-                            강의실 B
-                        </p>
-
-                        <p class='place-available-date'>
-                            YYYY-MM-DD HH:MM:SS
-                        </p>
-                    </div>
-                </div>
-
-                <div class="place-container">
-                    <div class='place-act-buttons' style="display: none">
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type="button" value="수정" class='edit-button'>
-                        <input type="button" value="삭제" class='delete-button'>
-                    </div>
-
-                    <div class="place-info">
-                        <p class='place-name'>
-                            강의실 C
-                        </p>
-
-                        <p class='place-available-date'>
-                            YYYY-MM-DD HH:MM:SS
-                        </p>
+                    <div>
+                        <input type="button" id='edit-hole-button' value='수정'>
+                        <input type="button" id='delete-hole-button' value='삭제'>
+                        <input type="button" id='move-show-holes-button' value='목록'>
                     </div>
                 </div>
 
                 <div>
-                     <input type="button" value="새로운 장소 등록" id="move-create-place-button">
-                 </div>
+                    <div id="open-new-timeline-container">
+                        <form id="open-new-timeline-form">
+                            <div>
+                                <input type="text" name='openAt' placeholder='시작'>
+                                <input type="text" name='closeAt' placeholder='종료'>
+                                <input type="submit" value="새로운 시간대 개방">
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div id="show-applies-container">
+                    </div>
+                </div>
             </div>
 
-            <div id='create-place-container' style='display: none'>
-                <form id='create-place-form'>
+            <div id='create-hole-container' style="display: none">
+                <form id='create-hole-form'>
                     <div>
-                        <input type="text" name="device-code" placeholder='디바이스 코드'>
-                        <input type="button" value="조회" id="search-device-code-button">
+                        <input type="text" name="hardware-key" placeholder='하드웨어 키'>
                     </div>
 
                     <div>
-                        <input type="button" value="취소" id="cancel-search-device-code-button">
-                    </div>
-
-                    <div style='display: none'>
                         <input type="text" name="name" placeholder='이름'>
                     </div>
 
-                    <div style='display: none'>
-                        <input type="text" name="description" placeholder='설명'>
+                    <div>
+                        <input type="text" name="explain" placeholder='설명'>
                     </div>
 
-                    <div style='display: none; margin-left: 8px'>
-                        <input type="button" value="이전" id="cancel-create-place-button">
-                        <input type='submit' value='등록' id='create-place-button'>
+                    <div style='margin-left: 8px'>
+                        <input type="button" value="취소" id="cancel-create-hole-button">
+                        <input type='submit' value='등록' id='create-hole-button'>
                     </div>
                 </form>
             </div>
-
-            <div id='rentals-container'>
-                <div class='rental-container'>
-                    <div class='rental-act-buttons' style='display: none'>
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type='button' value="승인" class='accept-button'>
-                        <input type='button' value="거절" class='refuse-button'>
-                    </div>
-
-                    <div class='rental-info'>
-                        <p class='rental-place-name'>
-                            강당
-                        </p>
-
-                        <p class='rental-reason'>
-                            신입생 오리엔테이션
-                        </p>
-
-                        <p class='rental-time'>
-                            <span class="started-date">YYYY-MM-DD HH:MM:SS</span>
-                            <span class="finshed-date">YYYY-MM-DD HH:MM:SS</span>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="rental-container">
-                    <div class='rental-act-buttons' style='display: none'>
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type='button' value="승인" class='accept-button'>
-                        <input type='button' value="거절" class='refuse-button'>
-                    </div>
-
-                    <div class="rental-info">
-                        <p class='rental-place-name'>
-                            강당
-                        </p>
-
-                        <p class='rental-reason'>
-                            신입생 오리엔테이션
-                        </p>
-
-                        <p class='rental-time'>
-                            <span class="started-date">YYYY-MM-DD HH:MM:SS</span>
-                            <span class="finshed-date">YYYY-MM-DD HH:MM:SS</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="rental-container">
-                    <div class='rental-act-buttons' style='display: none'>
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type='button' value="승인" class='accept-button'>
-                        <input type='button' value="거절" class='refuse-button'>
-                    </div>
-
-                    <div class="rental-info">
-                        <p class='rental-place-name'>
-                            강당
-                        </p>
-
-                        <p class='rental-reason'>
-                            신입생 오리엔테이션
-                        </p>
-
-                        <p class='rental-time'>
-                            <span class="started-date">YYYY-MM-DD HH:MM:SS</span>
-                            <span class="finshed-date">YYYY-MM-DD HH:MM:SS</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="rental-container">
-                    <div class='rental-act-buttons' style='display: none'>
-                        <input type="button" value="자세히 보기" class="show-detail-button">
-                        <input type='button' value="승인" class='accept-button'>
-                        <input type='button' value="거절" class='refuse-button'>
-                    </div>
-
-                    <div class="rental-info">
-                        <p class='rental-place-name'>
-                            강당
-                        </p>
-
-                        <p class='rental-reason'>
-                            신입생 오리엔테이션
-                        </p>
-
-                        <p class='rental-time'>
-                            <span class="started-date">YYYY-MM-DD HH:MM:SS</span>
-                            <span class="finshed-date">YYYY-MM-DD HH:MM:SS</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <script type='text/javascript' src='../js/main/place-container.js'></script>
-        <script type='text/javascript' src='../js/main/create-place-container.js'></script>
-        <script type='text/javascript' src='../js/main/rental-container.js'></script>
+        <script type='text/javascript' src='../js/main/applies.js'></script>
+        <script type='text/javascript' src='../js/main/holes.js'></script>
+        <script type='text/javascript' src='../js/main/show-hole-detail-container.js'></script>
+        <script type='text/javascript' src='../js/main/show-holes-container.js'></script>
+        <script type='text/javascript' src='../js/main/create-hole-container.js'></script>
     </body>
 </html>

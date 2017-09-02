@@ -1,14 +1,18 @@
-div#header {
+/* header */
+
+div#header-container {
     background-color: #35478C;
-    height: 175px;
+    height: 150px;
 }
 
-div#container {
-    background-color: #ADD5F7;
+/* main */
+
+div#main-container {
+    background-color: #4E7AC7;
     height: 900px;
-}
+} 
 
-div#form-container {
+div#main-container > div#form-container {
     background-color: #FFFFFF;
     float: right;
     height: 900px;
@@ -16,8 +20,153 @@ div#form-container {
     width: 780px;
 }
 
-div#form-container > form > div {
+div#main-container > div#form-container > form > div {
     margin: 32px;
     margin-top: 48px;
     margin-bottom: 48px;
 }
+
+/* join account */
+
+div#main-container > div#form-container > form#join-form {
+    margin-top: 315px;
+}
+
+div#main-container > div#form-container > form#join-form > h1 {
+    color: #95989A;
+    font-size: 30pt;
+    font-weight: normal !important;
+    float: left;
+    margin-left: 32px;
+}
+
+div#main-container > div#form-container > form#join-form > div > input[name='agency'] {
+    width: 500px;
+    margin-right: 16px;
+    font-size: 20pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+div#main-container > div#form-container > form#join-form > div > input#search-agency-button {
+    width: 100px;
+    font-size: 15pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #4E7AC7;
+    color: #FFFFFF;
+}
+
+div#main-container > div#form-container > form#join-form > div > input#cancel-search-agency-button {
+    width: 660px;
+    font-size: 15pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #35478C;;
+    color: #FFFFFF;
+}
+
+div#main-container > div#form-container > form#join-form > div > input[name='email'] {
+    width: 475px;
+    font-size: 20pt;
+    padding: 16px;
+    margin-right: 18px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+    display: inline-block;
+}
+
+div#main-container > div#form-container > form#join-form > div > input#search-duplicate-email-button {
+    width: 185px;
+    font-size: 15pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #4E7AC7;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+div#main-container > div#form-container > form#join-form > div > input[name='password'] {
+    width: 700px;
+    font-size: 20pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+div#main-container > div#form-container > form#join-form > div > input#join-button {
+    width: 345px;
+    font-size: 18pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    margin: 4px;
+    background-color: #35478C;
+    color: #FFFFFF;
+    display: inline-block;
+}
+
+div#main-container > div#form-container > form#join-form > div > input#cancel-join-button {
+    width: 325px;
+    font-size: 18pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    margin: 4px;
+    background-color: #35478C;
+    color: #FFFFFF;
+    display:inline-block;
+}
+
+/* login account */
+
+div#main-container > div#form-container > form#login-form {
+    margin-top: 250px;
+}
+
+div#main-container > div#form-container > form#login-form > h1 {
+    color: #95989A;
+    font-size: 30pt;
+    font-weight: normal !important;
+    float: left;
+    margin-left: 32px;
+}
+
+div#main-container > div#form-container > form#login-form > div > input[name='email'] {
+    width: 700px;
+    font-size: 20pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+div#main-container > div#form-container > form#login-form > div > input[name='password'] {
+    width: 700px;
+    font-size: 20pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+div#main-container > div#form-container > form#login-form > div > input#login-button {
+    width: 735px;
+    font-size: 18pt;
+    padding: 16px;
+    border: 1px solid #95989A;
+    background-color: #35478C;
+    color: #FFFFFF;
+}
+
+div#main-container > div#form-container > form#login-form > div > a#join-link {
+    margin-left: 25px;
+    font-size: 17.5pt;
+    color: #4E7AC7;
+    text-decoration: none;
+}
+
+div#main-container > div#form-container > form#login-form > div > a#join-link:hover {
+    color: #35478C;
+    font-size: 17.5pt;
+    font-weight: bold;
+    text-decoration: none;
+}
+

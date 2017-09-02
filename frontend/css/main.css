@@ -1,25 +1,248 @@
-div#header  {
+/* header */ 
+
+div#header-container  {
     background-color: #35478C;
     height: 175px;
 }
 
-div#container {
+/* main */
+
+div#main-container {
+    background-color: #FFFFFF;
+}
+
+/* profile information */
+
+div#show-profile-container {
+    text-align: center;
+    height: 300px;
+}
+
+div#show-profile-container > h1 {
+    font-size: 36pt;
+    margin: 27px auto;
+    padding: 32px;
+}
+
+div#show-profile-container >  div > input#move-create-hole-button {
+    border: 0px;
+    font-size: 17pt;
+    padding: 20px;
+    width: 400px;
+}
+
+/* holes list */
+
+div#main-container > div#show-holes-container {
+    background-color: #4E7AC7;;
+    text-align: center;
+}
+
+div#main-container > div#show-holes-container > div.hole-container {
+    width: 465px;
+    height: 310px;
+    margin: 16px;
+    margin-top: 70px;
+    margin-bottom: 100px; 
+    background-color: #FFFFFF;
+    display: inline-block;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-info-container {
+    text-align: left;
+    margin-top: 75px;
+    margin-bottom: 0px;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-info-container > p {
+    font-size: 15pt;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-info-container > p.hole-name {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-info-container > p.hole-created-at {
+    font-size: 23pt;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-act-buttons-container {
+    margin-top: 140px;
+    text-align: center;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-act-buttons-container > input[type='button'] {
+    background-color: #4E7AC7;
+    border: 1px solid #95989A;
+    color: #FFFFFF;
+    font-size: 15pt;
+    margin: 4px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding: 8px;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-act-buttons-container > input.edit-hole-button, input.delete-hole-button {
+    width: 173px;
+}
+
+div#main-container > div#show-holes-container > div.hole-container > div.hole-act-buttons-container > input.show-hole-detail-button {
+    width: 360px;
+}
+
+/* show hole detail */
+
+div#main-container > div#show-hole-detail-container {
+    background-color: #4E7AC7;
+}
+
+div#main-container > div#show-hole-detail-container > div#hole-detail-container {
+    background-color: #FFFFFF;
+}
+
+/* create new hole */
+
+div#main-container > div#create-hole-container {
     background-color: #FFFFFF;
     text-align: center;
 }
 
-div#container > div#profile-container {
-    background-color: #EAEAEA;
+div#main-container > div#create-hole-container > form#create-hole-form {
+    margin-top: 75px;
+    margin-bottom: 75px;
 }
 
-div#container > div#create-form-container {
-    background-color: #FFFFFF
+div#main-container > div#create-hole-container > form#create-hole-form > div > input[type='text'] {
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+    font-size: 20pt;
+    margin: 24px;
+    padding: 16px;
 }
 
-div#container > div#place-container {
-    background-color: #ADD5F7;
+div#main-container > div#create-hole-container > form#create-hole-form > div > input[type='button'] {
+    background-color: #4E7AC7;
+    color: white;
+    border: 0px;
+    font-size: 20pt;
+    padding: 16px;
 }
 
-div#container > div#rental-container {
-    background-color: #7FB2F0;
+div#main-container > div#create-hole-container > form#create-hole-form > div > input[type='submit'] {
+    background-color: #4E7AC7;
+    color: white;
+    border: 0px;
+    font-size: 20pt;
+    padding: 16px;
+}
+
+div#main-container > div#create-hole-container > form#create-hole-form > div > input#cancel-search-hardware-key-button {
+    margin-left: 22px;
+    margin-top: 48px;
+    width: 1270px;
+}
+
+div#main-container > div#create-hole-container > form#create-hole-form > div > input[name='name'], input[name='explain'], input[name='hardware-key'] {
+    width: 1400px;
+}
+
+div#main-container > div#create-hole-container > form#create-hole-form > div > input#create-hole-button {
+    margin-right: 10px;
+    margin-top: 48px;
+    width: 700px;
+}
+
+div#main-container > div#create-hole-container > form#create-hole-form > div > input#cancel-create-hole-button {
+    margin-right: 10px;
+    margin-top: 48px;
+    width: 700px;
+}
+
+/* show place's detail */
+div#main-container > div#show-hole-detail-container {
+    background-color: #4E7AC7;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+div#main-container > div#show-hole-detail-container > div {
+    background-color: #FFFFFF;
+    display: inline-block;
+    height: 600px;
+    margin: 0px auto;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 800px;
+}
+
+div#main-container > div#show-hole-detail-container > div > p#hole-detail-name {
+    font-size: 40pt;
+    font-weight: bold;
+    margin-top: 45px;
+    margin-bottom: 0px;
+}
+
+div#main-container > div#show-hole-detail-container > div > p#hole-detail-explain {
+    margin-bottom: 15px;
+    font-size: 25pt;
+}
+
+div#main-container > div#show-hole-detail-container > div > div > input[type='button'] {
+    border: 0px;
+    font-size: 13pt;
+    padding: 10px;
+    margin: 2px;
+    margin-top: 10px;
+}
+
+div#main-container > div#show-hole-detail-container > div > div > input#edit-hole-button {
+    width: 310px;   
+}
+
+div#main-container > div#show-hole-detail-container > div > div > input#delete-hole-button {
+    width: 310px
+} 
+
+div#main-container > div#show-hole-detail-container > div > div > input#move-show-holes-button {
+    width: 630px
+} 
+
+div#main-container > div#show-hole-detail-container > div > div#open-new-timeline-container > form#open-new-timeline-form > div > input[type='text'] {
+    margin: 8px;
+    margin-top:24px;
+    width: 325px;
+    font-size: 14pt;
+    padding: 16px;
+    border: 0px;
+    border-bottom: 2px solid #4E7AC7;
+}
+
+div#main-container > div#show-hole-detail-container > div > div#open-new-timeline-container > form#open-new-timeline-form > div > input[type='submit']{
+    border: 0px;
+    font-size: 13pt;
+    margin: 8px;
+    margin-top: 16px;
+    padding: 10px;
+    width: 740px;
+}
+
+/* show applies */
+
+div.apply-container {
+    width: 400px;
+    display: inline-block;
+}
+
+div.apply-container > div.apply-act-buttons-container > input[type='button'] {
+    border: 0px;
+    font-size: 10pt;
+    margin: 8px;
+    padding: 8px;
+    width: 70px;
+    display: inline-block;
 }

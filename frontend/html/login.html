@@ -4,14 +4,12 @@
     <title>Index</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/login/join-form.css">
-    <link rel="stylesheet" href="../css/login/login-form.css">
 </head>
     <body>
-        <div id="header">
+        <div id="header-container">
         </div>
         
-        <div id = "container">
+        <div id="main-container">
             <div id="form-container">
                 <form id="login-form">
                     <div>
@@ -33,12 +31,12 @@
 
                 <form id="join-form" style="display: none">
                     <div>
-                        <input type="text" name="auth-code" maxlength="16" placeholder="인증 코드">
-                        <input type="button" value="조회" id="search-auth-code-button">
+                        <input type="text" name="agency" placeholder="인증 코드">
+                        <input type="button" value="조회" id="search-agency-button">
                     </div>
                     
                     <div>
-                        <input type="button" value="취소" id="move-login-button">
+                        <input type="button" value="취소" id="cancel-search-agency-button">
                     </div>
 
                     <div style="display: none">
@@ -52,14 +50,16 @@
                     </div>
 
                     <div style="display: none">
-                        <input type="button" value="뒤로" id="move-auth-code-check-button">
+                        <input type="button" value="뒤로" id="cancel-join-button">
                         <input type="submit" value="회원가입" id="join-button">
                     </div>
                 </form>
             </div>
         </div>
 
+        <script type="text/javascript" src="../js/login/login.js"></script>
         <script type="text/javascript" src="../js/login/login-form.js"></script>
+        <script type="text/javascript" src="../js/login/join.js"></script>
         <script type="text/javascript" src="../js/login/join-form.js"></script>
     </body>
 </html>

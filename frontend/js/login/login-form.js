@@ -1,11 +1,20 @@
-const loginForm = document.getElementById('login-form');
+let loginForm = document.getElementById('login-form');
+
 loginForm.addEventListener('submit', (event) => {
     let email = loginForm.elements['email'].value;
     let password = loginForm.elements['password'].value;
 
     if (email && password) {
-        alert('로그인에 성공하였습니다');
-        location.href = './main.html';
+        login(email, password, (result, data) => {
+            if (result) {
+                alert('로그인에 성공했습니다');
+
+                localStorage.setItem('access-token', data['token']);
+                location.href = './main.html';
+            } else {
+                alert('로그인에 실패했습니다');
+            }
+        });
     } else {
         alert('아이디, 또는 비밀번호를 입력해주세요');
     }
@@ -13,7 +22,8 @@ loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
 });
 
-const joinLink = document.getElementById('join-link');
+let joinLink = document.getElementById('join-link');
+
 joinLink.addEventListener('click', (e) => {
     e.preventDefault();
     
