@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+    <body>
+        <div id="header-container">
+        </div>
+        
+        <div id="main-container">
+            <div id="form-container">
+                <form id="login-form">
+                    <div>
+                        <input type="text" name="email" placeholder="아이디">
+                    </div>
+
+                    <div>
+                        <input type="password" name="password" placeholder="비밀번호">
+                    </div>
+
+                    <div>
+                        <a href="" id="join-link">회원가입</a>
+                    </div>
+
+                    <div>
+                        <input type="submit" id="login-button" value="로그인">
+                    </div>
+                </form>
+
+                <form id="join-form" style="display: none">
+                    <div>
+                        <input type="text" name="agency" placeholder="인증 코드">
+                        <input type="button" value="조회" id="search-agency-button">
+                    </div>
+                    
+                    <div>
+                        <input type="button" value="취소" id="cancel-search-agency-button">
+                    </div>
+
+                    <div style="display: none">
+                        <input type='text' name='email' placeholder='이메일 주소'>
+                        <input type='button' value='중복 확인' id='search-duplicate-email-button'>
+                        <input type='checkbox' name='is-new-account' style='display: none'>
+                    </div>
+
+                    <div style="display: none">
+                        <input type="password" name="password" placeholder="비밀번호">
+                    </div>
+
+                    <div style="display: none">
+                        <input type="button" value="뒤로" id="cancel-join-button">
+                        <input type="submit" value="회원가입" id="join-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/login/login.js"></script>
+        <script type="text/javascript" src="../js/login/login-form.js"></script>
+        <script type="text/javascript" src="../js/login/join.js"></script>
+        <script type="text/javascript" src="../js/login/join-form.js"></script>
+    </body>
+</html>
